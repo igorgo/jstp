@@ -25,8 +25,7 @@ const server = jstp.net.createServer(serverConfig);
 client.on('message', ([message, ...args]) => {
   switch (message) {
     case 'error':
-      console.error(args[0].message);
-      test.fail('must not encounter an error');
+      test.fail(args[0].message);
       break;
     case 'connected':
       client.kill('SIGKILL');

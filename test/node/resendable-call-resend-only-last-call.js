@@ -27,8 +27,7 @@ function createServer() {
   server.on('message', ([message, ...args]) => {
     switch (message) {
       case 'error':
-        console.error(args[0].message);
-        test.fail('must not encounter an error');
+        test.fail(args[0].message);
         break;
       case 'listening':
         (initialConnection ? connect : reconnect)(args[0]);
